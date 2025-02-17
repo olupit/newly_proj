@@ -1,8 +1,13 @@
 import pandas as pd
 
-def load_data(filepath):
-    """Loads the air quality dataset from a CSV file."""
-    return pd.read_csv(filepath)
+def load_data(file_path):
+    """Loads the dataset and handles missing values."""
+    df = pd.read_csv(file_path)
+    
+    # Handle missing values by filling with mean
+    df.fillna(df.mean(), inplace=True)
+    
+    return df
 
 def clean_data(df):
     """Performs basic data cleaning."""

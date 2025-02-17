@@ -5,8 +5,8 @@ def load_data(filepath):
     return pd.read_csv(filepath)
 
 def clean_data(df):
-    """Performs basic data cleaning."""
-    df = df.dropna()  # Remove missing values
+    """Cleans dataset by removing duplicates."""
+    df.drop_duplicates(inplace=True)
     return df
 
 def summarise_data(df):
